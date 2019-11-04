@@ -1,7 +1,6 @@
 // Program to print all combination of size r in an array of size n
 #include <stdio.h>
-void combinationUtil(int arr[], int data[], int start, int end,
-                     int index, int r);
+void combinationUtil(int arr[], int data[], int start, int end, int index, int r);
 
 // The main function that prints all combinations of size r
 // in arr[] of size n. This function mainly uses combinationUtil()
@@ -19,8 +18,7 @@ data[] ---> Temporary array to store current combination
 start & end ---> Staring and Ending indexes in arr[] 
 index ---> Current index in data[] 
 r ---> Size of a combination to be printed */
-void combinationUtil(int arr[], int data[], int start, int end,
-                     int index, int r)
+void combinationUtil(int arr[], int data[], int start, int end, int index, int r)
 {
   // Current combination is ready to be printed, print it
   if (index == r)
