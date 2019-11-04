@@ -7,7 +7,7 @@ typedef struct
 {
   int peso;
   int valor;
-  int quantidade;
+  //int quantidade;
 
 } mochila;
 
