@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "mochila.h"
-int somaPesoFinal, somaValorFinal, somaValorFF, somaPesoFF;
+int somaPesoFinal, somaValorFinal, somaValorFF, somaPesoFF,contador;
 void combinationUtil(mochila arr[], mochila data[], int start, int end,
                      int index, int r);
 
@@ -12,10 +12,11 @@ void printCombination(mochila arr[], int n, int r)
   mochila data[r];
 
   combinationUtil(arr, data, 0, n - 1, 0, r);
-  // printf("\nPESO: %d  | VALOR: %d\n", somaPesoFinal, somaValorFinal);
-  if (c == 0)
+   printf("\nPESO: %d  | VALOR: %d\n", somaPesoFinal, somaValorFinal);
+  if (r != 0)
   {
-    printf("\nmelhor de totos : PESO: %d  | VALOR: %d\n", somaPesoFF, somaValorFF);
+    
+   printf("\nmelhor de totos : PESO: %d  | VALOR: %d\n", somaPesoFF, somaValorFF);
   }
 }
 
@@ -23,6 +24,7 @@ void combinationUtil(mochila arr[], mochila data[], int start, int end,
                      int index, int r)
 {
   int somaPeso = 0, somaValor = 0, j;
+  contador=0;
   mochila combinacaoTemoraria[r];
   //printf("\nPESO: %d  | VALOR: %d", somaPeso, somaValor);
   if (index == r)
@@ -43,13 +45,13 @@ void combinationUtil(mochila arr[], mochila data[], int start, int end,
           somaPesoFF = somaPesoFinal;
         }
 
-        //printf("PESO: %d  | VALOR: %d\n", somaPesoFinal, somaValorFinal);
+        printf("PESO: %d  | VALOR: %d\n", somaPesoFinal, somaValorFinal);
       }
     }
     //printf("\nPESO: %d  | VALOR: %d", somaPeso, somaValor);
     // combinacaoTemoraria[j] = data[j];
 
-    printf("\n");
+   // printf("\n");
     return;
   }
 
@@ -57,7 +59,16 @@ void combinationUtil(mochila arr[], mochila data[], int start, int end,
   {
     data[index] = arr[i];
     combinationUtil(arr, data, i + 1, end, index + 1, r);
+    //printf("i:%d  end:%d  index:%d  r:%d ",i,end, index,r);
+    if(index==0 && r==end+1)
+    {
+      printf("AAAAAAAAAAAAAAAAAAAA :%d\n",contador);
+      printf("\nmelhor de totos : PESO: %d  | VALOR: %d\n", somaPesoFF, somaValorFF);
+      //for(int j=0; j<contador; j++)
+      printf("{%d %d} | ", data[j].peso, data[j].valor);
+    }
   }
+  printf("\n");
 }
 
 mochila *insereVertor(int *meuTamanhoVetor)
