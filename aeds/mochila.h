@@ -1,4 +1,4 @@
-#define CAPACIDADE 15
+#define CAPACIDADE 40
 
 typedef struct
 {
@@ -9,5 +9,3 @@ mochila *insereVertor(int *meuTamanhoVetor);
 void combinationUtil(mochila arr[], mochila data[], int start, int end,
                      int index, int r);
 void printCombination(mochila arr[], int n, int r);
-void combinationUtil(mochila arr[], mochila data[], int start, int end,
-                     int index, int r);
